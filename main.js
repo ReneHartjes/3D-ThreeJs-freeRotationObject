@@ -8,6 +8,18 @@ const renderer = new THREE.WebGLRenderer({alpha:true});
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
+const gltfloader = new THREE.GLTFLoader();
+
+
+gltfloader.load( './untitled.glb', function ( gltf ) {
+
+	scene.add( gltf.scene );
+
+}, undefined, function ( error ) {
+
+	console.error( error );
+
+} );
 //const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 const geometry = new THREE.BoxGeometry( 1, 1, 1);
 const geo2 = new THREE.BoxGeometry(2,2,1);
@@ -16,7 +28,8 @@ const material = new THREE.MeshBasicMaterial( { color: 0x20ff30 });
 var controls = new THREE.OrbitControls(camera, renderer.domElement)
 const cube = new THREE.Mesh( geo2, material );
 cube.castShadow =true;
-scene.add( cube );
+//scene.add( cube );
+
 
 camera.position.z = 3;
 
@@ -26,7 +39,14 @@ function animate() {
 }
 animate();
 
+function turn(){
+    document.getElementById("bodyid").style.cursor ="grabbing"
+}
 
+function rel(){
+    document.getElementById("bodyid").style.cursor ="grab"
+
+}
 
 
 
@@ -34,20 +54,7 @@ animate();
   //  cube.rotation.y += 0.01;},200)
 
 /*
-function turn(){
-    console.log("turn")
-    let  e = window.event;
-    x = e.clientX
-     y = e.clientY
-     butup= true;
-}
 
-function rel(){
-    console.log("rel")
-    butup = false
-  
-
-}
 bdy = document.getElementById("bodyid")
 bdy.addEventListener("mousemove", (er) => {
     if (!butup) return;
