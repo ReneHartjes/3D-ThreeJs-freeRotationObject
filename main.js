@@ -11,7 +11,7 @@ document.body.appendChild( renderer.domElement );
 const gltfloader = new THREE.GLTFLoader();
 
 
-gltfloader.load( './untitled.glb', function ( gltf ) {
+gltfloader.load( './cv.glb', function ( gltf ) {
 
 	scene.add( gltf.scene );
 
@@ -23,6 +23,8 @@ gltfloader.load( './untitled.glb', function ( gltf ) {
 //const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 const geometry = new THREE.BoxGeometry( 1, 1, 1);
 const geo2 = new THREE.BoxGeometry(2,2,1);
+const light = new THREE.AmbientLight( 0xffffff ); // soft white light
+scene.add( light );
 const material = new THREE.MeshBasicMaterial( { color: 0x20ff30 });
 //const material = new THREE.MeshBasicMaterial( { vertexColors: true } );
 var controls = new THREE.OrbitControls(camera, renderer.domElement)
