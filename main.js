@@ -23,7 +23,9 @@ gltfloader.load( './cv.glb', function ( gltf ) {
 //const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 const geometry = new THREE.BoxGeometry( 1, 1, 1);
 const geo2 = new THREE.BoxGeometry(2,2,1);
-const light = new THREE.AmbientLight( 0xffffff ); // soft white light
+//const light = new THREE.AmbientLight( 0xffffff ); 0x404040// soft white light
+
+const light = new THREE.AmbientLight( 0x404040 );
 scene.add( light );
 const material = new THREE.MeshBasicMaterial( { color: 0x20ff30 });
 //const material = new THREE.MeshBasicMaterial( { vertexColors: true } );
@@ -33,7 +35,7 @@ cube.castShadow =true;
 //scene.add( cube );
 
 
-camera.position.z = 3;
+camera.position.z = 26;
 
 function animate() {
 	requestAnimationFrame( animate );
