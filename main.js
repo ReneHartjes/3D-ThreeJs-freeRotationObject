@@ -35,7 +35,7 @@ cube.castShadow =true;
 //scene.add( cube );
 
 
-camera.position.z = 26;
+camera.position.z = 26;   
 
 function animate() {
 	requestAnimationFrame( animate );
